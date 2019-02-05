@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+class LoginViewModel {
+    
+    var email: String
+    var password: String
+    
+    init() {
+        self.email = ""
+        self.password = ""
+    }
+    
+    func isReadyToPerformRequest() -> Bool {
+        if email.isEmpty || password.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+}
