@@ -19,6 +19,8 @@ extension LoginViewController: UITextFieldDelegate {
         
         if range.length == text.count {
             text = ""
+        } else if range.length > 0 {
+            text = String(text.dropLast(range.length))
         }
         
         if textField == emailTextField {

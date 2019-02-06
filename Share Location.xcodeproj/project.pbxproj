@@ -12,12 +12,13 @@
 		529C4565220A363D00996753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529C4563220A363D00996753 /* Main.storyboard */; };
 		529C4567220A363E00996753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 529C4566220A363E00996753 /* Assets.xcassets */; };
 		529C456A220A363E00996753 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529C4568220A363E00996753 /* LaunchScreen.storyboard */; };
-		529C4577220A3EF400996753 /* LoginRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4576220A3EF400996753 /* LoginRequests.swift */; };
+		529C4577220A3EF400996753 /* LoginRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4576220A3EF400996753 /* LoginRequester.swift */; };
 		529C4579220A3F0000996753 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4578220A3F0000996753 /* LoginViewModel.swift */; };
 		529C457B220A3F1300996753 /* LoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C457A220A3F1300996753 /* LoginRequestModel.swift */; };
 		529C457E220A4B9700996753 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C457D220A4B9700996753 /* Constants.swift */; };
 		529C4580220A4D4600996753 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C457F220A4D4600996753 /* AlertManager.swift */; };
 		529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4581220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift */; };
+		529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4583220A5C1E00996753 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +29,13 @@
 		529C4566220A363E00996753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		529C4569220A363E00996753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		529C456B220A363E00996753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		529C4576220A3EF400996753 /* LoginRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequests.swift; sourceTree = "<group>"; };
+		529C4576220A3EF400996753 /* LoginRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequester.swift; sourceTree = "<group>"; };
 		529C4578220A3F0000996753 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		529C457A220A3F1300996753 /* LoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestModel.swift; sourceTree = "<group>"; };
 		529C457D220A4B9700996753 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		529C457F220A4D4600996753 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		529C4581220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		529C4583220A5C1E00996753 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,7 @@
 		529C4575220A3AB800996753 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				529C4576220A3EF400996753 /* LoginRequests.swift */,
+				529C4576220A3EF400996753 /* LoginRequester.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 			children = (
 				529C457D220A4B9700996753 /* Constants.swift */,
 				529C457F220A4D4600996753 /* AlertManager.swift */,
+				529C4583220A5C1E00996753 /* BaseViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -205,7 +208,8 @@
 				529C457B220A3F1300996753 /* LoginRequestModel.swift in Sources */,
 				529C4562220A363D00996753 /* LoginViewController.swift in Sources */,
 				529C4560220A363D00996753 /* AppDelegate.swift in Sources */,
-				529C4577220A3EF400996753 /* LoginRequests.swift in Sources */,
+				529C4577220A3EF400996753 /* LoginRequester.swift in Sources */,
+				529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */,
 				529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */,
 				529C4580220A4D4600996753 /* AlertManager.swift in Sources */,
 				529C457E220A4B9700996753 /* Constants.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     var viewModel: LoginViewModel!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
         self.viewModel = LoginViewModel()
@@ -31,9 +32,16 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: Any) {
         if viewModel.isReadyToPerformRequest() {
-            print("ready")
+            let login = LoginRequester()
+            login.performLogin(username: viewModel.email, password: viewModel.password) { (success, message, error) in
+                if success {
+                    self.alert(message: message!)
+                } else {
+                    self.alert(message: message!)
+                }
+            }
         } else {
-            print("NOT ready")
+            self.alert(message: "Fill all the fields before trying to login!")
         }
     }
 }
