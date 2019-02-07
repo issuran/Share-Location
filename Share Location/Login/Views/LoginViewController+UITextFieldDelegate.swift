@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// DEPRECATED
 extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard var text = textField.text else {

@@ -31,11 +31,17 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func loginPressed(_ sender: Any) {
+        getUserEntered()
         if viewModel.isReadyToPerformRequest() {
             let login = LoginRequester()
             login.performLogin(username: viewModel.email, password: viewModel.password) { (success, message, error) in
+                
                 if success {
-                    self.alert(message: message!)
+                    DispatchQueue.main.async {
+                        if let tabbar = (self.storyboard?.instantiateViewController(withIdentifier: "tabbar") as? UITabBarController) {
+                            self.present(tabbar, animated: true, completion: nil)
+                        }
+                    }
                 } else {
                     self.alert(message: message!)
                 }
@@ -43,5 +49,10 @@ class LoginViewController: BaseViewController {
         } else {
             self.alert(message: "Fill all the fields before trying to login!")
         }
+    }
+    
+    func getUserEntered() {
+        viewModel.email = emailTextField.text ?? ""
+        viewModel.password = passwordTextField.text ?? ""
     }
 }
