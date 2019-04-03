@@ -121,7 +121,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Map-->
         <scene sceneID="rlq-XN-LUp">
             <objects>
                 <viewController id="FqX-UM-hE2" sceneMemberID="viewController">
@@ -142,13 +142,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ifo-CZ-u06"/>
                     </view>
-                    <tabBarItem key="tabBarItem" id="Exx-ct-CTg"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map" id="Exx-ct-CTg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sui-5C-v4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2471.1999999999998" y="-286.50674662668666"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="JCU-Wd-KXd">
             <objects>
                 <viewController id="T16-gS-hfk" sceneMemberID="viewController">
@@ -170,7 +170,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nWQ-AX-DX6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="s3X-7P-doN"/>
+                    <tabBarItem key="tabBarItem" title="List" image="List" id="s3X-7P-doN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vya-pi-qvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,6 +182,7 @@
                 <tabBarController restorationIdentifier="tabbar" storyboardIdentifier="tabbar" automaticallyAdjustsScrollViewInsets="NO" id="HnR-dU-gjH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Je1-6y-LLr">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -196,6 +197,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="List" width="30" height="30"/>
+        <image name="Map" width="30" height="30"/>
         <image name="logo" width="595" height="595"/>
     </resources>
 </document>
