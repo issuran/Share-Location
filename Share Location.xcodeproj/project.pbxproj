@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5286C93E22558DED001208F1 /* MapRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5286C93D22558DED001208F1 /* MapRequester.swift */; };
 		529C4560220A363D00996753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C455F220A363D00996753 /* AppDelegate.swift */; };
 		529C4562220A363D00996753 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4561220A363D00996753 /* LoginViewController.swift */; };
 		529C4565220A363D00996753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529C4563220A363D00996753 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5286C93D22558DED001208F1 /* MapRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRequester.swift; sourceTree = "<group>"; };
 		529C455C220A363D00996753 /* Share Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		529C455F220A363D00996753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		529C4561220A363D00996753 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		52D4549E22516741008843C4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5286C93D22558DED001208F1 /* MapRequester.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				52D454A0225167E1008843C4 /* MapViewController.swift in Sources */,
 				529C4560220A363D00996753 /* AppDelegate.swift in Sources */,
 				529C4577220A3EF400996753 /* LoginRequester.swift in Sources */,
+				5286C93E22558DED001208F1 /* MapRequester.swift in Sources */,
 				529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */,
 				52E3B6EB2252E79200514334 /* UserDefaults.swift in Sources */,
 				529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */,

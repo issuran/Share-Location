@@ -124,16 +124,43 @@
         <!--Map-->
         <scene sceneID="rlq-XN-LUp">
             <objects>
-                <viewController id="FqX-UM-hE2" sceneMemberID="viewController">
+                <viewController id="FqX-UM-hE2" customClass="MapViewController" customModule="Share_Location" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dol-TU-1UB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8B4-hJ-XWv">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lE-gi-ixB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Share Location" id="Vlv-lX-UIW">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="goL-J0-FFQ">
+                                            <connections>
+                                                <action selector="logoutButton:" destination="FqX-UM-hE2" id="JSW-ZD-Osq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Item" image="Add" id="ZLu-ho-vuJ">
+                                                <connections>
+                                                    <action selector="addButton:" destination="FqX-UM-hE2" id="bQC-5o-TOt"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="Refresh" id="7eq-h7-rB9">
+                                                <connections>
+                                                    <action selector="refreshButton:" destination="FqX-UM-hE2" id="uaL-4d-ZCM"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.1176470588" green="0.66666666669999997" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8B4-hJ-XWv" firstAttribute="top" secondItem="ifo-CZ-u06" secondAttribute="top" id="1Sm-yN-jQv"/>
                             <constraint firstItem="ifo-CZ-u06" firstAttribute="trailing" secondItem="8B4-hJ-XWv" secondAttribute="trailing" id="Y0Y-9c-VHu"/>
@@ -143,6 +170,10 @@
                         <viewLayoutGuide key="safeArea" id="ifo-CZ-u06"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="Exx-ct-CTg"/>
+                    <connections>
+                        <outlet property="mapView" destination="8B4-hJ-XWv" id="kTi-Xj-oHa"/>
+                        <outlet property="navigationBar" destination="9lE-gi-ixB" id="UDH-oc-QNU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sui-5C-v4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,8 +228,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add" width="30" height="30"/>
         <image name="List" width="30" height="30"/>
         <image name="Map" width="30" height="30"/>
+        <image name="Refresh" width="30" height="30"/>
         <image name="logo" width="595" height="595"/>
     </resources>
 </document>
