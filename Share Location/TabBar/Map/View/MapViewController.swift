@@ -29,7 +29,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.fra
+        
         indicator.center = self.view.center
         self.view.addSubview(indicator)
     }
