@@ -22,7 +22,6 @@
 		529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4583220A5C1E00996753 /* BaseViewController.swift */; };
 		52D454A0225167E1008843C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4549F225167E0008843C4 /* MapViewController.swift */; };
 		52E3B6E92252E52B00514334 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6E82252E52B00514334 /* Indicator.swift */; };
-		52E3B6EB2252E79200514334 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6EA2252E79200514334 /* UserDefaults.swift */; };
 		52E3B6ED2252E85F00514334 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6EC2252E85F00514334 /* UsersInfo.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		529C4583220A5C1E00996753 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		52D4549F225167E0008843C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		52E3B6E82252E52B00514334 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
-		52E3B6EA2252E79200514334 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		52E3B6EC2252E85F00514334 /* UsersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,7 +139,6 @@
 				529C457F220A4D4600996753 /* AlertManager.swift */,
 				529C4583220A5C1E00996753 /* BaseViewController.swift */,
 				52E3B6E82252E52B00514334 /* Indicator.swift */,
-				52E3B6EA2252E79200514334 /* UserDefaults.swift */,
 				52E3B6EC2252E85F00514334 /* UsersInfo.swift */,
 			);
 			path = Utils;
@@ -284,7 +281,6 @@
 				529C4577220A3EF400996753 /* LoginRequester.swift in Sources */,
 				5286C93E22558DED001208F1 /* MapRequester.swift in Sources */,
 				529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */,
-				52E3B6EB2252E79200514334 /* UserDefaults.swift in Sources */,
 				529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */,
 				529C4580220A4D4600996753 /* AlertManager.swift in Sources */,
 				529C457E220A4B9700996753 /* Constants.swift in Sources */,
