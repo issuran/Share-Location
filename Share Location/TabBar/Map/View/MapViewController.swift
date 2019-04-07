@@ -19,12 +19,15 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func logoutButton(_ sender: Any) {
+        print("Logout")
     }
     
     @IBAction func refreshButton(_ sender: Any) {
+        print("Refresh")
     }
     
     @IBAction func addButton(_ sender: Any) {
+        print("Add")
     }
     
     override func viewDidLoad() {
