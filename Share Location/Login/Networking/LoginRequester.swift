@@ -9,11 +9,12 @@
 import UIKit
 
 class LoginRequester {
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func performLogin(username: String, password: String, completionHandlerForAuth: @escaping (_ success: Bool,_ errormsg: String?, _ error: Error?) -> Void) {
-        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
-        request.httpMethod = "POST"
+        var request = URLRequest(url: URL(string: Constants.loginURL)!)
+        request.httpMethod = Constants.HttpMethod.post.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         

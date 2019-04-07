@@ -15,7 +15,7 @@ class MapRequester {
     func getUdacityData(username: String, password: String, completionHandlerForAuth: @escaping (_ success: Bool,_ errormsg: String?, _ error: NSError?) -> Void) {
         
         let request = NSMutableURLRequest(url: NSURL(string: "https://www.udacity.com/api/session")! as URL)
-        request.httpMethod = "POST"
+        request.httpMethod = Constants.HttpMethod.post.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: String.Encoding.utf8)

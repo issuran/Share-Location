@@ -184,7 +184,7 @@
         <!--List-->
         <scene sceneID="JCU-Wd-KXd">
             <objects>
-                <viewController id="T16-gS-hfk" sceneMemberID="viewController">
+                <viewController id="T16-gS-hfk" customClass="TableListViewController" customModule="Share_Location" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bT-BA-87U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,18 +192,40 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HTS-ZA-phQ">
                                 <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="T16-gS-hfk" id="E7H-uj-ng4"/>
+                                    <outlet property="delegate" destination="T16-gS-hfk" id="B8A-KN-2Hx"/>
+                                </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tp3-Ur-rqc">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Share Location" id="jvJ-R7-YXb">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dV4-X3-2zD"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Item" image="Add" id="3U6-AF-TGb"/>
+                                            <barButtonItem title="Item" image="Refresh" id="hNk-bK-wZf"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.49374162420000001" green="1" blue="0.4460565037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Tp3-Ur-rqc" firstAttribute="trailing" secondItem="nWQ-AX-DX6" secondAttribute="trailing" id="1Pu-KX-ECR"/>
+                            <constraint firstItem="Tp3-Ur-rqc" firstAttribute="top" secondItem="nWQ-AX-DX6" secondAttribute="top" id="QiD-Qc-OjO"/>
                             <constraint firstItem="HTS-ZA-phQ" firstAttribute="leading" secondItem="nWQ-AX-DX6" secondAttribute="leading" id="Zz2-CI-8U5"/>
                             <constraint firstItem="nWQ-AX-DX6" firstAttribute="bottom" secondItem="HTS-ZA-phQ" secondAttribute="bottom" id="eGC-al-3p8"/>
                             <constraint firstItem="HTS-ZA-phQ" firstAttribute="top" secondItem="nWQ-AX-DX6" secondAttribute="top" id="myt-Fu-fMC"/>
                             <constraint firstItem="nWQ-AX-DX6" firstAttribute="trailing" secondItem="HTS-ZA-phQ" secondAttribute="trailing" id="uU1-Tm-ETf"/>
+                            <constraint firstItem="Tp3-Ur-rqc" firstAttribute="leading" secondItem="nWQ-AX-DX6" secondAttribute="leading" id="wBM-fV-YLf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nWQ-AX-DX6"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="List" id="s3X-7P-doN"/>
+                    <connections>
+                        <outlet property="tableView" destination="HTS-ZA-phQ" id="IHA-8x-KkS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vya-pi-qvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

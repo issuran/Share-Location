@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52688B7C225A8B990078ED8C /* TableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B7B225A8B990078ED8C /* TableListViewController.swift */; };
 		5286C93E22558DED001208F1 /* MapRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5286C93D22558DED001208F1 /* MapRequester.swift */; };
 		529C4560220A363D00996753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C455F220A363D00996753 /* AppDelegate.swift */; };
 		529C4562220A363D00996753 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4561220A363D00996753 /* LoginViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52688B7B225A8B990078ED8C /* TableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewController.swift; sourceTree = "<group>"; };
 		5286C93D22558DED001208F1 /* MapRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRequester.swift; sourceTree = "<group>"; };
 		529C455C220A363D00996753 /* Share Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		529C455F220A363D00996753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52688B77225A8B380078ED8C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		52688B78225A8B450078ED8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52688B7B225A8B990078ED8C /* TableListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52688B79225A8B4C0078ED8C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52688B7A225A8B550078ED8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		529C4553220A363D00996753 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +198,10 @@
 		52D4549A225166E2008843C4 /* TableList */ = {
 			isa = PBXGroup;
 			children = (
+				52688B7A225A8B550078ED8C /* Model */,
+				52688B79225A8B4C0078ED8C /* ViewModel */,
+				52688B78225A8B450078ED8C /* View */,
+				52688B77225A8B380078ED8C /* Networking */,
 			);
 			path = TableList;
 			sourceTree = "<group>";
@@ -285,6 +320,7 @@
 				529C4580220A4D4600996753 /* AlertManager.swift in Sources */,
 				529C457E220A4B9700996753 /* Constants.swift in Sources */,
 				52E3B6ED2252E85F00514334 /* UsersInfo.swift in Sources */,
+				52688B7C225A8B990078ED8C /* TableListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

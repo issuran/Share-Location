@@ -10,6 +10,12 @@ import Foundation
 
 struct Constants {
     static let signUpURL = "https://auth.udacity.com/sign-up"
+    static let loginURL = "https://onthemap-api.udacity.com/v1/session"
     static let parseApplicationID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
     static let APIKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
+        
+    enum HttpMethod: String {
+        case post = "POST"
+        case get = "GET"
+    }
 }
