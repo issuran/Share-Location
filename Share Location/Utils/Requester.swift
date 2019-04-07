@@ -1,15 +1,15 @@
 //
-//  MapRequester.swift
+//  Requester.swift
 //  Share Location
 //
-//  Created by Tiago Oliveira on 03/04/19.
+//  Created by Tiago Oliveira on 07/04/19.
 //  Copyright © 2019 Tiago Oliveira. All rights reserved.
 //
 
 import UIKit
 import Foundation
 
-class MapRequester {
+class Requester {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func getUdacityData(username: String, password: String, completionHandlerForAuth: @escaping (_ success: Bool,_ errormsg: String?, _ error: NSError?) -> Void) {

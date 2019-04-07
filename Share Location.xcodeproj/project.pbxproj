@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52688B7C225A8B990078ED8C /* TableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B7B225A8B990078ED8C /* TableListViewController.swift */; };
-		5286C93E22558DED001208F1 /* MapRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5286C93D22558DED001208F1 /* MapRequester.swift */; };
+		52688B7E225A98B40078ED8C /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B7D225A98B40078ED8C /* Requester.swift */; };
 		529C4560220A363D00996753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C455F220A363D00996753 /* AppDelegate.swift */; };
 		529C4562220A363D00996753 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4561220A363D00996753 /* LoginViewController.swift */; };
 		529C4565220A363D00996753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529C4563220A363D00996753 /* Main.storyboard */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		52688B7B225A8B990078ED8C /* TableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewController.swift; sourceTree = "<group>"; };
-		5286C93D22558DED001208F1 /* MapRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRequester.swift; sourceTree = "<group>"; };
+		52688B7D225A98B40078ED8C /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		529C455C220A363D00996753 /* Share Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		529C455F220A363D00996753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		529C4561220A363D00996753 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -59,13 +59,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52688B77225A8B380078ED8C /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		52688B78225A8B450078ED8C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +164,7 @@
 				529C4583220A5C1E00996753 /* BaseViewController.swift */,
 				52E3B6E82252E52B00514334 /* Indicator.swift */,
 				52E3B6EC2252E85F00514334 /* UsersInfo.swift */,
+				52688B7D225A98B40078ED8C /* Requester.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -187,7 +181,6 @@
 		52D45499225166D6008843C4 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				52D4549E22516741008843C4 /* Networking */,
 				52D4549D22516727008843C4 /* ViewModel */,
 				52D4549C22516720008843C4 /* View */,
 				52D4549B22516718008843C4 /* Model */,
@@ -201,7 +194,6 @@
 				52688B7A225A8B550078ED8C /* Model */,
 				52688B79225A8B4C0078ED8C /* ViewModel */,
 				52688B78225A8B450078ED8C /* View */,
-				52688B77225A8B380078ED8C /* Networking */,
 			);
 			path = TableList;
 			sourceTree = "<group>";
@@ -226,14 +218,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		52D4549E22516741008843C4 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				5286C93D22558DED001208F1 /* MapRequester.swift */,
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +298,7 @@
 				52D454A0225167E1008843C4 /* MapViewController.swift in Sources */,
 				529C4560220A363D00996753 /* AppDelegate.swift in Sources */,
 				529C4577220A3EF400996753 /* LoginRequester.swift in Sources */,
-				5286C93E22558DED001208F1 /* MapRequester.swift in Sources */,
+				52688B7E225A98B40078ED8C /* Requester.swift in Sources */,
 				529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */,
 				529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */,
 				529C4580220A4D4600996753 /* AlertManager.swift in Sources */,

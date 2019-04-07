@@ -11,6 +11,7 @@ import UIKit
 
 class TableListViewController: BaseViewController {
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var indicator = Indicator()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +19,24 @@ class TableListViewController: BaseViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadTableView()
+    }
+    
+    func loadTableView() {
+        let requester = Requester()
+        requester.getUsersData {(success, error) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.indicator.loadingView(false)
+                }
+            } else {                
+                self.indicator.stopAnimating()
+            }
+        }
     }
 }
 

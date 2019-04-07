@@ -45,8 +45,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     }
     
     func loadMapView() {
-        let mapRequester = MapRequester()
-        mapRequester.getUsersData() {(success, error) in
+        let requester = Requester()
+        requester.getUsersData() {(success, error) in
             if success {
                 DispatchQueue.main.async {
                     self.loadMap()
