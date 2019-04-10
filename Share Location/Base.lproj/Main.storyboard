@@ -114,7 +114,7 @@
                         <outlet property="emailTextField" destination="lVD-K1-1lp" id="Ypi-x0-IzI"/>
                         <outlet property="loginButton" destination="ICI-jw-JVV" id="CM1-7S-oiU"/>
                         <outlet property="passwordTextField" destination="CqZ-R1-SLu" id="aUj-8h-SeL"/>
-                        <segue destination="HnR-dU-gjH" kind="show" identifier="" id="vob-rH-RWu"/>
+                        <segue destination="HnR-dU-gjH" kind="show" identifier="goToHome" id="vob-rH-RWu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

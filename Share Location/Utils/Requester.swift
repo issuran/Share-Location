@@ -88,7 +88,6 @@ class Requester {
             }
             
             guard (error == nil) else {
-                sendError(error: "There was an error with your request: \(error)")
                 return
             }
             
@@ -101,8 +100,6 @@ class Requester {
                 sendError(error: "No Data Was Returned By The Request!")
                 return
             }
-            
-            //Parse Data
             
             let newData = data.subdata(in: Range(uncheckedBounds: (5, data.count)))
             
@@ -120,7 +117,6 @@ class Requester {
             }
             
             guard let user = dictionary["user"] as? [String: Any] else {
-                sendError(error: "Cannot Find Key 'user' In \(parsedResult)")
                 return
             }
             
@@ -128,8 +124,6 @@ class Requester {
                 sendError(error: "Cannot Find Key 'key' In \(user)")
                 return
             }
-            
-            //Utilize Data
             
             guard let firstName = user["first_name"] as? String else {
                 sendError(error: "Cannot Find Key 'key' In \(user)")
@@ -157,7 +151,6 @@ class Requester {
             }
             
             guard (error == nil) else {
-                sendError(error: "There Was An Error With Your Request: \(error)")
                 return
             }
             

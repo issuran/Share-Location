@@ -45,8 +45,6 @@ struct UsersInfo {
     static func UsersDataResults(_ results: [[String:Any]]) -> [UsersInfo] {
         var usersList = [UsersInfo]()
         
-        //Users Data Results
-        
         for result in results {
             if let UsersInfo = UsersInfo(dictionary: result) {
                 usersList.append(UsersInfo)
