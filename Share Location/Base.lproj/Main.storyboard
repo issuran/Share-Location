@@ -135,7 +135,7 @@
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lE-gi-ixB">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Share Location" id="Vlv-lX-UIW">
                                         <barButtonItem key="leftBarButtonItem" title="Logout" id="goL-J0-FFQ">
@@ -159,7 +159,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.66666666669999997" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8B4-hJ-XWv" firstAttribute="top" secondItem="ifo-CZ-u06" secondAttribute="top" id="1Sm-yN-jQv"/>
                             <constraint firstItem="9lE-gi-ixB" firstAttribute="leading" secondItem="ifo-CZ-u06" secondAttribute="trailing" constant="-375" id="Pzn-eE-73d"/>
@@ -189,8 +189,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tp3-Ur-rqc">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8X7-re-YRJ"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Share Location" id="jvJ-R7-YXb">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dV4-X3-2zD">
+                                            <connections>
+                                                <action selector="logoutButton:" destination="T16-gS-hfk" id="vfY-Jg-7fP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Item" image="Add" id="3U6-AF-TGb">
+                                                <connections>
+                                                    <action selector="addButton:" destination="T16-gS-hfk" id="6Yu-5z-ZVu"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="Refresh" id="hNk-bK-wZf">
+                                                <connections>
+                                                    <action selector="refreshButton:" destination="T16-gS-hfk" id="ecz-1x-cQU"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HTS-ZA-phQ">
-                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" textLabel="6Q2-zK-Lyg" detailTextLabel="Vla-ns-pup" imageView="O9X-bS-0Ci" style="IBUITableViewCellStyleSubtitle" id="24S-X7-ZEd">
@@ -227,26 +254,14 @@
                                     <outlet property="delegate" destination="T16-gS-hfk" id="B8A-KN-2Hx"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tp3-Ur-rqc">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Share Location" id="jvJ-R7-YXb">
-                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dV4-X3-2zD"/>
-                                        <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="Add" id="3U6-AF-TGb"/>
-                                            <barButtonItem title="Item" image="Refresh" id="hNk-bK-wZf"/>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.49374162420000001" green="1" blue="0.4460565037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Tp3-Ur-rqc" firstAttribute="trailing" secondItem="nWQ-AX-DX6" secondAttribute="trailing" id="1Pu-KX-ECR"/>
+                            <constraint firstItem="HTS-ZA-phQ" firstAttribute="top" secondItem="Tp3-Ur-rqc" secondAttribute="bottom" id="QMp-mz-dxd"/>
                             <constraint firstItem="Tp3-Ur-rqc" firstAttribute="top" secondItem="nWQ-AX-DX6" secondAttribute="top" id="QiD-Qc-OjO"/>
                             <constraint firstItem="HTS-ZA-phQ" firstAttribute="leading" secondItem="nWQ-AX-DX6" secondAttribute="leading" id="Zz2-CI-8U5"/>
                             <constraint firstItem="nWQ-AX-DX6" firstAttribute="bottom" secondItem="HTS-ZA-phQ" secondAttribute="bottom" id="eGC-al-3p8"/>
-                            <constraint firstItem="HTS-ZA-phQ" firstAttribute="top" secondItem="nWQ-AX-DX6" secondAttribute="top" id="myt-Fu-fMC"/>
                             <constraint firstItem="nWQ-AX-DX6" firstAttribute="trailing" secondItem="HTS-ZA-phQ" secondAttribute="trailing" id="uU1-Tm-ETf"/>
                             <constraint firstItem="Tp3-Ur-rqc" firstAttribute="leading" secondItem="nWQ-AX-DX6" secondAttribute="leading" id="wBM-fV-YLf"/>
                         </constraints>
@@ -259,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vya-pi-qvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2471" y="514"/>
+            <point key="canvasLocation" x="2469.5999999999999" y="513.54679802955673"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HUS-fm-GcQ">

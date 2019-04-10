@@ -25,6 +25,18 @@ class TableListViewController: BaseViewController {
         loadTableView()
     }
     
+    @IBAction func logoutButton(_ sender: Any) {
+        print("Logout")
+    }
+    
+    @IBAction func addButton(_ sender: Any) {
+        print("Add")
+    }
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        print("Refresh")
+    }
+    
     func loadTableView() {
         let requester = Requester()
         requester.getUsersData {(success, error) in
