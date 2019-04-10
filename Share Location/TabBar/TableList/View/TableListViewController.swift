@@ -42,12 +42,35 @@ class TableListViewController: BaseViewController {
 
 extension TableListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let numberOfRows = UsersInfo.UsersArray.count < 100 ? UsersInfo.UsersArray.count : 100
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let infoCell = tableView.dequeueReusableCell(withIdentifier: "infoCell")!
+        let user = UsersInfo.UsersArray[indexPath.row]
+
+
+        infoCell.textLabel?.text = "\(user.firstName) \(user.lastName)"
+        infoCell.imageView?.image = UIImage(named: "Pin")
+        infoCell.detailTextLabel?.text = user.mediaURL
+
+        return infoCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = UsersInfo.UsersArray[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let url = URL(string: user.mediaURL), checkURL(user.mediaURL) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
     
+    func checkURL(_ url: String) -> Bool {
+        if let url = URL(string: url) {
+            return UIApplication.shared.canOpenURL(url)
+        }
+        return false
+    }
 }
