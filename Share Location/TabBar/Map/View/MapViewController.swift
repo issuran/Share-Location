@@ -23,7 +23,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     }
     
     @IBAction func refreshButton(_ sender: Any) {
-        print("Refresh")
+        indicator.loadingView(true)
+        loadMapView()
     }
     
     @IBAction func addButton(_ sender: Any) {

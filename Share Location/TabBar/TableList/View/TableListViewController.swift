@@ -34,7 +34,8 @@ class TableListViewController: BaseViewController {
     }
     
     @IBAction func refreshButton(_ sender: Any) {
-        print("Refresh")
+        indicator.loadingView(true)
+        loadTableView()
     }
     
     func loadTableView() {
