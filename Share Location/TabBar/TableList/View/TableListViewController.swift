@@ -12,6 +12,7 @@ import UIKit
 class TableListViewController: BaseViewController {
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var indicator = Indicator()
+    let viewModel = TableListViewModel()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,7 +27,7 @@ class TableListViewController: BaseViewController {
     }
     
     @IBAction func logoutButton(_ sender: Any) {
-        print("Logout")
+        self.viewModel.logout(self)
     }
     
     @IBAction func addButton(_ sender: Any) {

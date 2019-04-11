@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5228D69F226006860043F061 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228D69E226006860043F061 /* MapViewModel.swift */; };
+		5228D6A12260071F0043F061 /* TableListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228D6A02260071F0043F061 /* TableListViewModel.swift */; };
 		52688B7C225A8B990078ED8C /* TableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B7B225A8B990078ED8C /* TableListViewController.swift */; };
 		52688B7E225A98B40078ED8C /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B7D225A98B40078ED8C /* Requester.swift */; };
 		529C4560220A363D00996753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C455F220A363D00996753 /* AppDelegate.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5228D69E226006860043F061 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		5228D6A02260071F0043F061 /* TableListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewModel.swift; sourceTree = "<group>"; };
 		52688B7B225A8B990078ED8C /* TableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewController.swift; sourceTree = "<group>"; };
 		52688B7D225A98B40078ED8C /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		529C455C220A363D00996753 /* Share Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +74,7 @@
 		52688B79225A8B4C0078ED8C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5228D6A02260071F0043F061 /* TableListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 		52D4549D22516727008843C4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5228D69E226006860043F061 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				529C4579220A3F0000996753 /* LoginViewModel.swift in Sources */,
 				529C457B220A3F1300996753 /* LoginRequestModel.swift in Sources */,
 				52E3B6E92252E52B00514334 /* Indicator.swift in Sources */,
+				5228D6A12260071F0043F061 /* TableListViewModel.swift in Sources */,
 				529C4562220A363D00996753 /* LoginViewController.swift in Sources */,
 				52D454A0225167E1008843C4 /* MapViewController.swift in Sources */,
 				529C4560220A363D00996753 /* AppDelegate.swift in Sources */,
@@ -302,6 +309,7 @@
 				529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */,
 				529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */,
 				529C4580220A4D4600996753 /* AlertManager.swift in Sources */,
+				5228D69F226006860043F061 /* MapViewModel.swift in Sources */,
 				529C457E220A4B9700996753 /* Constants.swift in Sources */,
 				52E3B6ED2252E85F00514334 /* UsersInfo.swift in Sources */,
 				52688B7C225A8B990078ED8C /* TableListViewController.swift in Sources */,

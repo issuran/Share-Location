@@ -14,12 +14,14 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     var indicator = Indicator()
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     let reuseId = "pin"
+    let viewModel = MapViewModel()
+    
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func logoutButton(_ sender: Any) {
-        print("Logout")
+        self.viewModel.logout(self)
     }
     
     @IBAction func refreshButton(_ sender: Any) {
