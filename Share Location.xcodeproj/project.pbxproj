@@ -23,6 +23,7 @@
 		529C4580220A4D4600996753 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C457F220A4D4600996753 /* AlertManager.swift */; };
 		529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4581220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift */; };
 		529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4583220A5C1E00996753 /* BaseViewController.swift */; };
+		52B3814D2263817700F5DB53 /* InformationPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B3814C2263817700F5DB53 /* InformationPostViewController.swift */; };
 		52D454A0225167E1008843C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4549F225167E0008843C4 /* MapViewController.swift */; };
 		52E3B6E92252E52B00514334 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6E82252E52B00514334 /* Indicator.swift */; };
 		52E3B6ED2252E85F00514334 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6EC2252E85F00514334 /* UsersInfo.swift */; };
@@ -47,6 +48,7 @@
 		529C457F220A4D4600996753 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		529C4581220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		529C4583220A5C1E00996753 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		52B3814C2263817700F5DB53 /* InformationPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPostViewController.swift; sourceTree = "<group>"; };
 		52D4549F225167E0008843C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		52E3B6E82252E52B00514334 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		52E3B6EC2252E85F00514334 /* UsersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		529C455E220A363D00996753 /* Share Location */ = {
 			isa = PBXGroup;
 			children = (
+				52B3814A226380F600F5DB53 /* InformationPosting */,
 				52D45498225166C8008843C4 /* TabBar */,
 				529C457C220A4B8900996753 /* Utils */,
 				529C4571220A3A8900996753 /* Login */,
@@ -172,6 +175,22 @@
 				52688B7D225A98B40078ED8C /* Requester.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		52B3814A226380F600F5DB53 /* InformationPosting */ = {
+			isa = PBXGroup;
+			children = (
+				52B3814B2263813500F5DB53 /* Views */,
+			);
+			path = InformationPosting;
+			sourceTree = "<group>";
+		};
+		52B3814B2263813500F5DB53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				52B3814C2263817700F5DB53 /* InformationPostViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		52D45498225166C8008843C4 /* TabBar */ = {
@@ -304,6 +323,7 @@
 				529C4562220A363D00996753 /* LoginViewController.swift in Sources */,
 				52D454A0225167E1008843C4 /* MapViewController.swift in Sources */,
 				529C4560220A363D00996753 /* AppDelegate.swift in Sources */,
+				52B3814D2263817700F5DB53 /* InformationPostViewController.swift in Sources */,
 				529C4577220A3EF400996753 /* LoginRequester.swift in Sources */,
 				52688B7E225A98B40078ED8C /* Requester.swift in Sources */,
 				529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */,
