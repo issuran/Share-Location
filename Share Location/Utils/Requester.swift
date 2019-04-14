@@ -41,8 +41,6 @@ class Requester {
                 return
             }
             
-            //Parse Data
-            
             let stringData = String(data: data, encoding: String.Encoding.utf8)
             print(stringData ?? "Done!")
             
@@ -59,8 +57,6 @@ class Requester {
             guard let account = dictionary["account"] as? [String:Any] else {
                 return
             }
-            
-            //Utilize Data
             
             guard let userID = account["key"] as? String else {
                 return
@@ -164,7 +160,6 @@ class Requester {
                 return
             }
             
-            //Parse Data
             let parsedResult: Any!
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)

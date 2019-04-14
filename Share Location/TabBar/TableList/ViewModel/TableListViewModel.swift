@@ -13,4 +13,8 @@ class TableListViewModel {
     func logout(_ controller: UIViewController) {
         controller.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
+    
+    func numberOfRows() -> Int {
+        return UsersInfo.UsersArray.count < 100 ? UsersInfo.UsersArray.count : 100
+    }
 }

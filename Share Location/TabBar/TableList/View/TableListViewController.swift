@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class TableListViewController: BaseViewController {
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var indicator = Indicator()
     let viewModel = TableListViewModel()
     
@@ -28,10 +27,6 @@ class TableListViewController: BaseViewController {
     
     @IBAction func logoutButton(_ sender: Any) {
         self.viewModel.logout(self)
-    }
-    
-    @IBAction func addButton(_ sender: Any) {
-        print("Add")
     }
     
     @IBAction func refreshButton(_ sender: Any) {
@@ -56,14 +51,12 @@ class TableListViewController: BaseViewController {
 
 extension TableListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows = UsersInfo.UsersArray.count < 100 ? UsersInfo.UsersArray.count : 100
-        return numberOfRows
+        return viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let infoCell = tableView.dequeueReusableCell(withIdentifier: "infoCell")!
         let user = UsersInfo.UsersArray[indexPath.row]
-
 
         infoCell.textLabel?.text = "\(user.firstName) \(user.lastName)"
         infoCell.imageView?.image = UIImage(named: "Pin")

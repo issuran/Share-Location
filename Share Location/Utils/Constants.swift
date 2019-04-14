@@ -17,5 +17,6 @@ struct Constants {
     enum HttpMethod: String {
         case post = "POST"
         case get = "GET"
+        case put = "PUT"
     }
 }

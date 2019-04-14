@@ -18,7 +18,6 @@
 		529C456A220A363E00996753 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529C4568220A363E00996753 /* LaunchScreen.storyboard */; };
 		529C4577220A3EF400996753 /* LoginRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4576220A3EF400996753 /* LoginRequester.swift */; };
 		529C4579220A3F0000996753 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4578220A3F0000996753 /* LoginViewModel.swift */; };
-		529C457B220A3F1300996753 /* LoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C457A220A3F1300996753 /* LoginRequestModel.swift */; };
 		529C457E220A4B9700996753 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C457D220A4B9700996753 /* Constants.swift */; };
 		529C4580220A4D4600996753 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C457F220A4D4600996753 /* AlertManager.swift */; };
 		529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4581220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift */; };
@@ -45,7 +44,6 @@
 		529C456B220A363E00996753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		529C4576220A3EF400996753 /* LoginRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequester.swift; sourceTree = "<group>"; };
 		529C4578220A3F0000996753 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		529C457A220A3F1300996753 /* LoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestModel.swift; sourceTree = "<group>"; };
 		529C457D220A4B9700996753 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		529C457F220A4D4600996753 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		529C4581220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
@@ -85,13 +83,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		52688B7A225A8B550078ED8C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		529C4553220A363D00996753 = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +120,6 @@
 			children = (
 				529C4575220A3AB800996753 /* Networking */,
 				529C4574220A3AB200996753 /* ViewModels */,
-				529C4573220A3AAA00996753 /* Models */,
 				529C4572220A3AA100996753 /* Views */,
 			);
 			path = Login;
@@ -142,14 +132,6 @@
 				529C4581220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		529C4573220A3AAA00996753 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				529C457A220A3F1300996753 /* LoginRequestModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		529C4574220A3AB200996753 /* ViewModels */ = {
@@ -221,7 +203,6 @@
 			children = (
 				52D4549D22516727008843C4 /* ViewModel */,
 				52D4549C22516720008843C4 /* View */,
-				52D4549B22516718008843C4 /* Model */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -229,18 +210,10 @@
 		52D4549A225166E2008843C4 /* TableList */ = {
 			isa = PBXGroup;
 			children = (
-				52688B7A225A8B550078ED8C /* Model */,
 				52688B79225A8B4C0078ED8C /* ViewModel */,
 				52688B78225A8B450078ED8C /* View */,
 			);
 			path = TableList;
-			sourceTree = "<group>";
-		};
-		52D4549B22516718008843C4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		52D4549C22516720008843C4 /* View */ = {
@@ -331,7 +304,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				529C4579220A3F0000996753 /* LoginViewModel.swift in Sources */,
-				529C457B220A3F1300996753 /* LoginRequestModel.swift in Sources */,
 				52E3B6E92252E52B00514334 /* Indicator.swift in Sources */,
 				5228D6A12260071F0043F061 /* TableListViewModel.swift in Sources */,
 				529C4562220A363D00996753 /* LoginViewController.swift in Sources */,

@@ -146,7 +146,6 @@
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" image="Add" id="ZLu-ho-vuJ">
                                                 <connections>
-                                                    <action selector="addButton:" destination="FqX-UM-hE2" id="bQC-5o-TOt"/>
                                                     <segue destination="l7p-At-dWr" kind="presentation" id="xoa-SL-XWe"/>
                                                 </connections>
                                             </barButtonItem>
@@ -207,7 +206,6 @@
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" image="Add" id="3U6-AF-TGb">
                                                 <connections>
-                                                    <action selector="addButton:" destination="T16-gS-hfk" id="6Yu-5z-ZVu"/>
                                                     <segue destination="l7p-At-dWr" kind="presentation" id="RkY-tr-tud"/>
                                                 </connections>
                                             </barButtonItem>

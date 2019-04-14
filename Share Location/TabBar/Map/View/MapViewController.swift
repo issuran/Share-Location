@@ -12,8 +12,6 @@ import MapKit
 class MapViewController: BaseViewController, MKMapViewDelegate {
     var annotations = [MKPointAnnotation]()
     var indicator = Indicator()
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let reuseId = "pin"
     let viewModel = MapViewModel()
     
     
@@ -27,10 +25,6 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     @IBAction func refreshButton(_ sender: Any) {
         indicator.loadingView(true)
         loadMapView()
-    }
-    
-    @IBAction func addButton(_ sender: Any) {
-        print("Add")
     }
     
     override func viewDidLoad() {
@@ -63,21 +57,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     
     func loadMap() {
         self.mapView.removeAnnotations(annotations)
-        annotations = [MKPointAnnotation]()
-        for dictionary in UsersInfo.UsersArray {
-            let lat = dictionary.lat
-            let long = dictionary.long
-            //unwrap?
-            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let first = dictionary.firstName
-            let last = dictionary.lastName
-            let mediaURL = dictionary.mediaURL
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            annotation.title = "\(first) \(last)"
-            annotation.subtitle = mediaURL
-            annotations.append(annotation)
-        }
+        annotations = viewModel.parseAnnotations()
         self.mapView.addAnnotations(annotations)
     }
 }

@@ -27,7 +27,6 @@ class Indicator: UIActivityIndicatorView {
         } else {
             self.stopAnimating()
             self.hidesWhenStopped = true
-            
         }
     }
 }
