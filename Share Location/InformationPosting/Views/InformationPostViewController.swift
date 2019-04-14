@@ -8,15 +8,55 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class InformationPostViewController: BaseViewController {
     
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var linkTextField: UITextField!
+    
+    var indicator = Indicator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
     }
     
     @IBAction func cancelAddAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func findLocationAction(_ sender: Any) {
+        self.indicator.loadingView(true)
+        
+        let localSearchRequest = MKLocalSearch.Request()
+        localSearchRequest.naturalLanguageQuery = addressTextField.text
+        let localSearch = MKLocalSearch(request: localSearchRequest)
+        localSearch.start { (localSearchResponse, error) -> Void in
+            if localSearchResponse == nil {
+                print("Error")
+                self.indicator.loadingView(false)
+                return
+            }
+            
+            let pointAnnotation = MKPointAnnotation()
+            pointAnnotation.title = self.addressTextField.text!
+            pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: localSearchResponse!.boundingRegion.center.latitude, longitude:     localSearchResponse!.boundingRegion.center.longitude)
+            
+            let latitude = localSearchResponse!.boundingRegion.center.latitude
+            let longitude = localSearchResponse!.boundingRegion.center.longitude
+            
+            let controller = self.storyboard!.instantiateViewController(withIdentifier: "ConfirmNewLocationViewController") as! ConfirmNewLocationViewController
+            controller.location = self.addressTextField.text ?? ""
+            controller.mediaURL = self.linkTextField.text ?? ""
+            controller.pointAnnotation = pointAnnotation
+            controller.latitude = latitude
+            controller.longitude = longitude
+            self.indicator.loadingView(false)
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
 }
