@@ -16,7 +16,7 @@ class InformationPostViewController: BaseViewController {
     }
     
     @IBAction func cancelAddAction(_ sender: Any) {
-        print("Cancel")
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
