@@ -18,7 +18,11 @@ class Requester {
         request.httpMethod = Constants.HttpMethod.post.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: String.Encoding.utf8)
+        request.httpBody = """
+            {\"udacity\":
+            {\"username\":\"\(username)\",
+            \"password\": \"\(password)\"}}
+            """.data(using: String.Encoding.utf8)
         let session = URLSession.shared
         
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
@@ -116,13 +120,8 @@ class Requester {
                 return
             }
             
-            guard let lastName = user["last_name"] as? String else {
-                sendError(error: "Cannot Find Key 'key' In \(user)")
-                return
-            }
-            
-            guard let firstName = user["first_name"] as? String else {
-                sendError(error: "Cannot Find Key 'key' In \(user)")
+            guard let firstName = user["first_name"] as? String, let lastName = user["last_name"] as? String else {
+                print("Error")
                 return
             }
             self.appDelegate.lastName = lastName
@@ -140,23 +139,17 @@ class Requester {
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
-            func sendError(error: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForData(false, NSError(domain: "getStudentData", code: 1, userInfo: userInfo))
-            }
-            
             guard (error == nil) else {
                 return
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError(error: "Your Request Returned A Status Code Other Than 2xx!")
+                print("Your Request Returned A Status Code Other Than 2xx!")
                 return
             }
             
             guard let data = data else {
-                sendError(error: "No Data Was Returned By The Request!")
+                print("No Data Was Returned By The Request!")
                 return
             }
             
@@ -164,7 +157,7 @@ class Requester {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
             } catch {
-                sendError(error: "Could Not Parse The Data As JSON: '\(data)'")
+                print("Could Not Parse The Data As JSON: '\(data)'")
                 return
             }
             
@@ -175,7 +168,7 @@ class Requester {
                     completionHandlerForData(true, nil)
                 }
             } else {
-                sendError(error: "Sorry! Edit!")
+                print("Sorry! Edit!")
             }
             
         }

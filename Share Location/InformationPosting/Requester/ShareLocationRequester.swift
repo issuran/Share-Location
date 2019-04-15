@@ -18,29 +18,30 @@ class ShareLocationRequester {
         request.addValue(Constants.parseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(Constants.APIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"\(student.uniqueKey)\", \"firstName\": \"\(student.firstName)\", \"lastName\": \"\(student.lastName)\",\"mapString\": \"\(location)\", \"mediaURL\": \"\(student.mediaURL)\",\"latitude\": \(student.lat), \"longitude\": \(student.long)}".data(using: String.Encoding.utf8)
+        request.httpBody = """
+            {\"uniqueKey\": \"\(student.uniqueKey)\",
+            \"firstName\": \"\(student.firstName)\",
+            \"lastName\": \"\(student.lastName)\",
+            \"mapString\": \"\(location)\",
+            \"mediaURL\": \"\(student.mediaURL)\",
+            \"latitude\": \(student.lat),
+            \"longitude\": \(student.long)}
+            """.data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            
-            func sendError(error: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForPost(false, NSError(domain: "postNew", code: 1, userInfo: userInfo))
-            }
-            
             guard (error == nil) else {
                 print("Error - \(error.debugDescription)")
                 return
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError(error: "Your Request Returned A Status Code Other Than 2xx!")
+                print("Error Status Code Not a 2xx!")
                 return
             }
             
             
             guard data != nil else {
-                sendError(error: "No Data Was Returned By The Request!")
+                print("No Data Was Returned By The Request!")
                 return
             }
             completionHandlerForPost(true, nil)
@@ -57,15 +58,17 @@ class ShareLocationRequester {
         request.addValue(Constants.parseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(Constants.APIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"\(student.uniqueKey)\", \"firstName\": \"\(student.firstName)\", \"lastName\": \"\(student.lastName)\",\"mapString\": \"\(location)\", \"mediaURL\": \"\(student.mediaURL)\",\"latitude\": \(student.lat), \"longitude\": \(student.long)}".data(using: String.Encoding.utf8)
+        request.httpBody = """
+            {\"uniqueKey\": \"\(student.uniqueKey)\",
+            \"firstName\": \"\(student.firstName)\",
+            \"lastName\": \"\(student.lastName)\",
+            \"mapString\": \"\(location)\",
+            \"mediaURL\": \"\(student.mediaURL)\",
+            \"latitude\": \(student.lat),
+            \"longitude\": \(student.long)}
+            """.data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            
-            func sendError(error: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForPut(false, NSError(domain: "updateStudentData", code: 1, userInfo: userInfo))
-            }
             
             guard (error == nil) else {
                 print("Error - \(error.debugDescription)")
@@ -73,12 +76,12 @@ class ShareLocationRequester {
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError(error: "Your Request Returned A Status Code Other Than 2xx!")
+                print("Your Request Returned A Status Code Other Than 2xx!")
                 return
             }
             
             guard data != nil else {
-                sendError(error: "No Data Was Returned By The Request!")
+                print("No Data Was Returned By The Request!")
                 return
             }
             completionHandlerForPut(true, nil)
