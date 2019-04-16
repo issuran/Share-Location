@@ -19,7 +19,11 @@ class LoginRequester {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         // change to a Codable struct
-        request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
+        request.httpBody = """
+            {\"udacity\":
+            {\"username\": \"\(username)\",
+            \"password\": \"\(password)\"}}
+            """.data(using: .utf8)
         
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in

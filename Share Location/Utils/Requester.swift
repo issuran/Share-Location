@@ -14,7 +14,7 @@ class Requester {
     
     func getUdacityData(username: String, password: String, completionHandlerForAuth: @escaping (_ success: Bool,_ errormsg: String?, _ error: NSError?) -> Void) {
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://www.udacity.com/api/session")! as URL)
+        var request = URLRequest(url: URL(string: Constants.udacityDataURL)!)
         request.httpMethod = Constants.HttpMethod.post.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -27,17 +27,9 @@ class Requester {
         
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
-            func handleError(error: String, errormsg: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForAuth(false, errormsg, NSError(domain: "getUdacityData", code: 1, userInfo: userInfo))
-            }
-            
-            guard (error == nil) else {
-                return
-            }
-            
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                let alert = UIAlertController(title: "Error", message: "Error, status code is not 2xx", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                 return
             }
             
@@ -45,12 +37,7 @@ class Requester {
                 return
             }
             
-            let stringData = String(data: data, encoding: String.Encoding.utf8)
-            print(stringData ?? "Done!")
-            
             let newData = data.subdata(in: Range(uncheckedBounds: (5, data.count)))
-            let stringnewData = String(data: newData, encoding: String.Encoding.utf8)
-            print(stringnewData ?? "Done!")
             
             let parsedResult = try? JSONSerialization.jsonObject(with: newData, options: .allowFragments)
             
@@ -77,27 +64,18 @@ class Requester {
     
     func getUserData(userID: String, completionHandlerForAuth: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://www.udacity.com/api/users/\(userID)")! as URL)
+        let url = "\(Constants.udacityUserDataURL)/\(userID)"
+        let request = URLRequest(url: URL(string: url)!)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
-            func sendError(error: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForAuth(false, NSError(domain: "getUserData", code: 1, userInfo: userInfo))
-            }
-            
-            guard (error == nil) else {
-                return
-            }
-            
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError(error: "Your Request Returned A Status Code Other Than 2xx!")
+                print("Your Request Returned A Status Code Other Than 2xx!")
                 return
             }
             
             guard let data = data else {
-                sendError(error: "No Data Was Returned By The Request!")
+                print("No Data Was Returned By The Request!")
                 return
             }
             
@@ -107,12 +85,12 @@ class Requester {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments)
             } catch {
-                sendError(error: "Could Not Parse The Data As JSON: '\(data)'")
+                print("Could Not Parse The Data As JSON: '\(data.debugDescription)'")
                 return
             }
             
             guard let dictionary = parsedResult as? [String: Any] else {
-                sendError(error: "Cannot Parse")
+                print("Cannot Parse")
                 return
             }
             
@@ -124,6 +102,7 @@ class Requester {
                 print("Error")
                 return
             }
+            
             self.appDelegate.lastName = lastName
             self.appDelegate.firstName = firstName
             completionHandlerForAuth(true, nil)

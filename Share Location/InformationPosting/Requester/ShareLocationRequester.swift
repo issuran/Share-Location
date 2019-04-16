@@ -12,9 +12,10 @@ import UIKit
 class ShareLocationRequester {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    func postNew(student: UsersInfo, location: String, completionHandlerForPost: @escaping (_ success: Bool, _ error: NSError?)->Void) {
-        let request = NSMutableURLRequest(url: NSURL(string: "https://parse.udacity.com/parse/classes/StudentLocation")! as URL)
-        request.httpMethod = "POST"
+    func postNew(student: UsersInfo, location: String, completionHandlerForPost: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
+
+        var request = URLRequest(url: URL(string: Constants.studentLocationURL)!)
+        request.httpMethod = Constants.HttpMethod.post.rawValue
         request.addValue(Constants.parseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(Constants.APIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -51,9 +52,8 @@ class ShareLocationRequester {
     }
     
     func updateUserData(student: UsersInfo, location: String, completionHandlerForPut: @escaping (_ success: Bool, _ error: NSError?)->Void) {
-        let urlString = "https://parse.udacity.com/parse/classes/StudentLocation/\(student.objectId)"
-        let url = NSURL(string: urlString)
-        let request = NSMutableURLRequest(url: url! as URL)
+        let url = "\(Constants.studentLocationURL)/\(student.objectId)"
+        var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = Constants.HttpMethod.put.rawValue
         request.addValue(Constants.parseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(Constants.APIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
