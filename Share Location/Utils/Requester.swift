@@ -12,7 +12,9 @@ import Foundation
 class Requester {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    func getUdacityData(username: String, password: String, completionHandlerForAuth: @escaping (_ success: Bool,_ errormsg: String?, _ error: NSError?) -> Void) {
+    func getUdacityData(username: String,
+                        password: String,
+                        completion: @escaping (_ success: Bool,_ errormsg: String?, _ error: NSError?) -> Void) {
         
         var request = URLRequest(url: URL(string: Constants.udacityDataURL)!)
         request.httpMethod = Constants.HttpMethod.post.rawValue
@@ -55,14 +57,15 @@ class Requester {
             
             self.appDelegate.userID = userID
             
-            completionHandlerForAuth(true, nil, nil)
+            completion(true, nil, nil)
         }
         
         task.resume()
         
     }
     
-    func getUserData(userID: String, completionHandlerForAuth: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
+    func getUserData(userID: String,
+                     completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
         
         let url = "\(Constants.udacityUserDataURL)/\(userID)"
         let request = URLRequest(url: URL(string: url)!)
@@ -105,14 +108,15 @@ class Requester {
             
             self.appDelegate.lastName = lastName
             self.appDelegate.firstName = firstName
-            completionHandlerForAuth(true, nil)
+            completion(true, nil)
         }
         task.resume()
     }
     
-    func getUsersData(completionHandlerForData: @escaping (_ success: Bool, _ error: NSError?) -> Void) -> Void {
+    func getUsersData(completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) -> Void {
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://parse.udacity.com/parse/classes/StudentLocation?order=-updatedAt&limit=100")! as URL)
+        let url = "\(Constants.udacityUserDataURL)?order=-updatedAt&limit=100"
+        var request = URLRequest(url: URL(string: url)!)
         request.addValue(Constants.parseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(Constants.APIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = URLSession.shared
@@ -144,12 +148,11 @@ class Requester {
                 if let resultSet = results["results"] as? [[String: Any]]{
                     UsersInfo.UsersArray = UsersInfo.UsersDataResults(resultSet)
                     print("yehey? \(UsersInfo.UsersArray)")
-                    completionHandlerForData(true, nil)
+                    completion(true, nil)
                 }
             } else {
                 print("Sorry! Edit!")
-            }
-            
+            }            
         }
         task.resume()
     }

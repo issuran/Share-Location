@@ -12,7 +12,9 @@ class LoginRequester {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    func performLogin(username: String, password: String, completionHandlerForAuth: @escaping (_ success: Bool,_ errormsg: String?, _ error: Error?) -> Void) {
+    func performLogin(username: String,
+                      password: String,
+                      completion: @escaping (_ success: Bool,_ errormsg: String?, _ error: Error?) -> Void) {
         var request = URLRequest(url: URL(string: Constants.loginURL)!)
         request.httpMethod = Constants.HttpMethod.post.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -28,35 +30,35 @@ class LoginRequester {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil {
-                completionHandlerForAuth(false, "ERROR", error)
+                completion(false, "ERROR", error)
                 return
             }
             
             let range = 5..<data!.count
             guard let newData = data?.subdata(in: range) else {
-                completionHandlerForAuth(false, "ERROR \(String(data: data!, encoding: .utf8)!)", nil)
+                completion(false, "ERROR \(String(data: data!, encoding: .utf8)!)", nil)
                 return
             }
             
             let parsedResult = try? JSONSerialization.jsonObject(with: newData, options: .allowFragments)
             
-            guard let dictionary = parsedResult as? [String: Any] else {
-                completionHandlerForAuth(false, "ERROR \(String(data: newData, encoding: .utf8)!)", nil)
+            guard let dictionaryResult = parsedResult as? [String: Any] else {
+                completion(false, "ERROR \(String(data: newData, encoding: .utf8)!)", nil)
                 return
             }
             
-            guard let account = dictionary["account"] as? [String:Any] else {
-                completionHandlerForAuth(false, "ERROR \(String(data: newData, encoding: .utf8)!)", nil)
+            guard let account = dictionaryResult["account"] as? [String:Any] else {
+                completion(false, "ERROR \(String(data: newData, encoding: .utf8)!)", nil)
                 return
             }
             
             guard let userID = account["key"] as? String else {
-                completionHandlerForAuth(false, "ERROR \(String(data: newData, encoding: .utf8)!)", nil)
+                completion(false, "ERROR \(String(data: newData, encoding: .utf8)!)", nil)
                 return
             }
             
             self.appDelegate.userID = userID
-            completionHandlerForAuth(true, "userID = \(userID)", nil)
+            completion(true, nil, nil)
         }
         task.resume()
     }

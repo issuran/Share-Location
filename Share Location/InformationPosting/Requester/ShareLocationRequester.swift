@@ -12,7 +12,7 @@ import UIKit
 class ShareLocationRequester {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    func postNew(student: UsersInfo, location: String, completionHandlerForPost: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
+    func postNew(student: UsersInfo, location: String, completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
 
         var request = URLRequest(url: URL(string: Constants.studentLocationURL)!)
         request.httpMethod = Constants.HttpMethod.post.rawValue
@@ -29,29 +29,21 @@ class ShareLocationRequester {
             \"longitude\": \(student.long)}
             """.data(using: String.Encoding.utf8)
         let session = URLSession.shared
+        
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            guard (error == nil) else {
-                print("Error - \(error.debugDescription)")
-                return
-            }
+            guard error == nil, data != nil else { return }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 print("Error Status Code Not a 2xx!")
                 return
             }
             
-            
-            guard data != nil else {
-                print("No Data Was Returned By The Request!")
-                return
-            }
-            completionHandlerForPost(true, nil)
+            completion(true, nil)
         }
         task.resume()
-        
     }
     
-    func updateUserData(student: UsersInfo, location: String, completionHandlerForPut: @escaping (_ success: Bool, _ error: NSError?)->Void) {
+    func updateUserData(student: UsersInfo, location: String, completion: @escaping (_ success: Bool, _ error: NSError?)->Void) {
         let url = "\(Constants.studentLocationURL)/\(student.objectId)"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = Constants.HttpMethod.put.rawValue
@@ -68,25 +60,18 @@ class ShareLocationRequester {
             \"longitude\": \(student.long)}
             """.data(using: String.Encoding.utf8)
         let session = URLSession.shared
+        
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
-            guard (error == nil) else {
-                print("Error - \(error.debugDescription)")
-                return
-            }
+            guard error == nil, data != nil else { return }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 print("Your Request Returned A Status Code Other Than 2xx!")
                 return
             }
             
-            guard data != nil else {
-                print("No Data Was Returned By The Request!")
-                return
-            }
-            completionHandlerForPut(true, nil)
+            completion(true, nil)
         }
         task.resume()
-        
     }
 }
