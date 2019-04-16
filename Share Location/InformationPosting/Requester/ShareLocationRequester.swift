@@ -66,7 +66,7 @@ class ShareLocationRequester {
             guard error == nil, data != nil else { return }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                print("Your Request Returned A Status Code Other Than 2xx!")
+                print("Error Status Code Not a 2xx!")
                 return
             }
             

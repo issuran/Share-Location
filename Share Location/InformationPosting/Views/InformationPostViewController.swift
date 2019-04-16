@@ -15,13 +15,13 @@ class InformationPostViewController: BaseViewController {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var linkTextField: UITextField!
     
-    var indicator = Indicator()
+    var pinnator = Pinnator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        indicator.center = self.view.center
-        self.view.addSubview(indicator)
+        pinnator.center = self.view.center
+        self.view.addSubview(pinnator)
     }
     
     @IBAction func cancelAddAction(_ sender: Any) {
@@ -29,7 +29,7 @@ class InformationPostViewController: BaseViewController {
     }
     
     @IBAction func findLocationAction(_ sender: Any) {
-        self.indicator.loadingView(true)
+        self.pinnator.loadingView(true)
         
         let localSearchRequest = MKLocalSearch.Request()
         localSearchRequest.naturalLanguageQuery = addressTextField.text
@@ -37,7 +37,7 @@ class InformationPostViewController: BaseViewController {
         localSearch.start { (localSearchResponse, error) -> Void in
             if localSearchResponse == nil {
                 print("Error")
-                self.indicator.loadingView(false)
+                self.pinnator.loadingView(false)
                 return
             }
             
@@ -54,7 +54,7 @@ class InformationPostViewController: BaseViewController {
             controller.pointAnnotation = pointAnnotation
             controller.latitude = latitude
             controller.longitude = longitude
-            self.indicator.loadingView(false)
+            self.pinnator.loadingView(false)
             self.present(controller, animated: true, completion: nil)
         }
     }

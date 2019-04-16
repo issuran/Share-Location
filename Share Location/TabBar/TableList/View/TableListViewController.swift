@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TableListViewController: BaseViewController {
-    var indicator = Indicator()
+    var pinnator = Pinnator()
     let viewModel = TableListViewModel()
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,7 +30,7 @@ class TableListViewController: BaseViewController {
     }
     
     @IBAction func refreshButton(_ sender: Any) {
-        indicator.loadingView(true)
+        pinnator.loadingView(true)
         loadTableView()
     }
     
@@ -40,10 +40,10 @@ class TableListViewController: BaseViewController {
             if success {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.indicator.loadingView(false)
+                    self.pinnator.loadingView(false)
                 }
             } else {                
-                self.indicator.stopAnimating()
+                self.pinnator.stopAnimating()
             }
         }
     }

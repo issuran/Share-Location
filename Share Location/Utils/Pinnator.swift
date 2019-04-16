@@ -1,5 +1,5 @@
 //
-//  Indicator.swift
+//  Pinnator.swift
 //  Share Location
 //
 //  Created by Tiago Oliveira on 01/04/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Indicator: UIActivityIndicatorView {
+class Pinnator: UIActivityIndicatorView {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -21,12 +21,14 @@ class Indicator: UIActivityIndicatorView {
         self.style = UIActivityIndicatorView.Style.gray
     }
     
-    func loadingView(_ isloading: Bool) {
-        if isloading {
+    func loadingView(_ isLoading: Bool) {
+        if isLoading {
             self.startAnimating()
+            
         } else {
             self.stopAnimating()
             self.hidesWhenStopped = true
+            
         }
     }
 }

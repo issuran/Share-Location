@@ -30,12 +30,12 @@ class Requester {
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                let alert = UIAlertController(title: "Error", message: "Error, status code is not 2xx", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                print("Error Status Code Not a 2xx!")
                 return
             }
             
             guard let data = data else {
+                print("No Data Available!")
                 return
             }
             
@@ -73,12 +73,12 @@ class Requester {
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                print("Your Request Returned A Status Code Other Than 2xx!")
+                print("Error Status Code Not a 2xx!")
                 return
             }
             
             guard let data = data else {
-                print("No Data Was Returned By The Request!")
+                print("No Data Available!")
                 return
             }
             
@@ -88,12 +88,12 @@ class Requester {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments)
             } catch {
-                print("Could Not Parse The Data As JSON: '\(data.debugDescription)'")
+                print("Couldnt Parse: '\(data.debugDescription)'")
                 return
             }
             
             guard let dictionary = parsedResult as? [String: Any] else {
-                print("Cannot Parse")
+                print("Couldnt Parse: \(parsedResult.debugDescription)")
                 return
             }
             
@@ -127,12 +127,12 @@ class Requester {
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                print("Your Request Returned A Status Code Other Than 2xx!")
+                print("Error Status Code Not a 2xx!")
                 return
             }
             
             guard let data = data else {
-                print("No Data Was Returned By The Request!")
+                print("No Data Available!")
                 return
             }
             
@@ -140,18 +140,17 @@ class Requester {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
             } catch {
-                print("Could Not Parse The Data As JSON: '\(data)'")
+                print("Couldnt Parse: '\(data)'")
                 return
             }
             
             if let results = parsedResult as? [String: Any] {
                 if let resultSet = results["results"] as? [[String: Any]]{
                     UsersInfo.UsersArray = UsersInfo.UsersDataResults(resultSet)
-                    print("yehey? \(UsersInfo.UsersArray)")
                     completion(true, nil)
                 }
             } else {
-                print("Sorry! Edit!")
+                print("Error")
             }            
         }
         task.resume()

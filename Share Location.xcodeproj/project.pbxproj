@@ -26,7 +26,7 @@
 		52B51D0D226390810060CCC6 /* ConfirmNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B51D0C226390810060CCC6 /* ConfirmNewLocationViewController.swift */; };
 		52B51D1022639C730060CCC6 /* ShareLocationRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B51D0F22639C730060CCC6 /* ShareLocationRequester.swift */; };
 		52D454A0225167E1008843C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4549F225167E0008843C4 /* MapViewController.swift */; };
-		52E3B6E92252E52B00514334 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6E82252E52B00514334 /* Indicator.swift */; };
+		52E3B6E92252E52B00514334 /* Pinnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6E82252E52B00514334 /* Pinnator.swift */; };
 		52E3B6ED2252E85F00514334 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3B6EC2252E85F00514334 /* UsersInfo.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		52B51D0C226390810060CCC6 /* ConfirmNewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNewLocationViewController.swift; sourceTree = "<group>"; };
 		52B51D0F22639C730060CCC6 /* ShareLocationRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLocationRequester.swift; sourceTree = "<group>"; };
 		52D4549F225167E0008843C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		52E3B6E82252E52B00514334 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		52E3B6E82252E52B00514334 /* Pinnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pinnator.swift; sourceTree = "<group>"; };
 		52E3B6EC2252E85F00514334 /* UsersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +156,7 @@
 				529C457D220A4B9700996753 /* Constants.swift */,
 				529C457F220A4D4600996753 /* AlertManager.swift */,
 				529C4583220A5C1E00996753 /* BaseViewController.swift */,
-				52E3B6E82252E52B00514334 /* Indicator.swift */,
+				52E3B6E82252E52B00514334 /* Pinnator.swift */,
 				52E3B6EC2252E85F00514334 /* UsersInfo.swift */,
 				52688B7D225A98B40078ED8C /* Requester.swift */,
 			);
@@ -304,7 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				529C4579220A3F0000996753 /* LoginViewModel.swift in Sources */,
-				52E3B6E92252E52B00514334 /* Indicator.swift in Sources */,
+				52E3B6E92252E52B00514334 /* Pinnator.swift in Sources */,
 				5228D6A12260071F0043F061 /* TableListViewModel.swift in Sources */,
 				529C4562220A363D00996753 /* LoginViewController.swift in Sources */,
 				52D454A0225167E1008843C4 /* MapViewController.swift in Sources */,

@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: BaseViewController, MKMapViewDelegate {
     var annotations = [MKPointAnnotation]()
-    var indicator = Indicator()
+    var pinnator = Pinnator()
     let viewModel = MapViewModel()
     
     
@@ -23,22 +23,22 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     }
     
     @IBAction func refreshButton(_ sender: Any) {
-        indicator.loadingView(true)
+        pinnator.loadingView(true)
         loadMapView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        indicator.center = self.view.center
-        self.view.addSubview(indicator)
+        pinnator.center = self.view.center
+        self.view.addSubview(pinnator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         loadMapView()
-        indicator.loadingView(true)
+        pinnator.loadingView(true)
     }
     
     func loadMapView() {
@@ -47,10 +47,10 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
             if success {
                 DispatchQueue.main.async {
                     self.loadMap()
-                    self.indicator.loadingView(false)
+                    self.pinnator.loadingView(false)
                 }
             } else {
-                self.indicator.stopAnimating()
+                self.pinnator.stopAnimating()
             }
         }
     }
