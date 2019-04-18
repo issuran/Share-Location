@@ -42,7 +42,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     }
     
     func loadMapView() {
-        let requester = Requester()
+        let requester = ShareLocationRequester()
         requester.getUsersData() {(success, error) in
             if success {
                 DispatchQueue.main.async {

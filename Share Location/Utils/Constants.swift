@@ -13,7 +13,6 @@ struct Constants {
     static let loginURL = "https://onthemap-api.udacity.com/v1/session"
     static let studentLocationURL = "https://parse.udacity.com/parse/classes/StudentLocation"
     static let udacityDataURL = "https://www.udacity.com/api/session"
-    static let udacityUserDataURL = "https://www.udacity.com/api/users"
     
     static let parseApplicationID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
     static let APIKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"

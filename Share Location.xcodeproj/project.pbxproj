@@ -10,7 +10,6 @@
 		5228D69F226006860043F061 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228D69E226006860043F061 /* MapViewModel.swift */; };
 		5228D6A12260071F0043F061 /* TableListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228D6A02260071F0043F061 /* TableListViewModel.swift */; };
 		52688B7C225A8B990078ED8C /* TableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B7B225A8B990078ED8C /* TableListViewController.swift */; };
-		52688B7E225A98B40078ED8C /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688B7D225A98B40078ED8C /* Requester.swift */; };
 		529C4560220A363D00996753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C455F220A363D00996753 /* AppDelegate.swift */; };
 		529C4562220A363D00996753 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C4561220A363D00996753 /* LoginViewController.swift */; };
 		529C4565220A363D00996753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529C4563220A363D00996753 /* Main.storyboard */; };
@@ -34,7 +33,6 @@
 		5228D69E226006860043F061 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		5228D6A02260071F0043F061 /* TableListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewModel.swift; sourceTree = "<group>"; };
 		52688B7B225A8B990078ED8C /* TableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewController.swift; sourceTree = "<group>"; };
-		52688B7D225A98B40078ED8C /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		529C455C220A363D00996753 /* Share Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Share Location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		529C455F220A363D00996753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		529C4561220A363D00996753 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				529C4583220A5C1E00996753 /* BaseViewController.swift */,
 				52E3B6E82252E52B00514334 /* Pinnator.swift */,
 				52E3B6EC2252E85F00514334 /* UsersInfo.swift */,
-				52688B7D225A98B40078ED8C /* Requester.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -313,7 +310,6 @@
 				52B3814D2263817700F5DB53 /* InformationPostViewController.swift in Sources */,
 				529C4577220A3EF400996753 /* LoginRequester.swift in Sources */,
 				52B51D1022639C730060CCC6 /* ShareLocationRequester.swift in Sources */,
-				52688B7E225A98B40078ED8C /* Requester.swift in Sources */,
 				529C4584220A5C1E00996753 /* BaseViewController.swift in Sources */,
 				529C4582220A50D800996753 /* LoginViewController+UITextFieldDelegate.swift in Sources */,
 				529C4580220A4D4600996753 /* AlertManager.swift in Sources */,

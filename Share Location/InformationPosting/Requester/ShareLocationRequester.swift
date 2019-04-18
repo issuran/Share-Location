@@ -74,4 +74,47 @@ class ShareLocationRequester {
         }
         task.resume()
     }
+    
+    func getUsersData(completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) -> Void {
+        
+        let url = "\(Constants.studentLocationURL)?order=-updatedAt&limit=100"
+        var request = URLRequest(url: URL(string: url)!)
+        request.addValue(Constants.parseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(Constants.APIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            
+            guard (error == nil) else {
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                print("Error Status Code Not a 2xx!")
+                return
+            }
+            
+            guard let data = data else {
+                print("No Data Available!")
+                return
+            }
+            
+            let parsedResult: Any!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            } catch {
+                print("Couldnt Parse: '\(data)'")
+                return
+            }
+            
+            if let results = parsedResult as? [String: Any] {
+                if let resultSet = results["results"] as? [[String: Any]]{
+                    UsersInfo.UsersArray = UsersInfo.UsersDataResults(resultSet)
+                    completion(true, nil)
+                }
+            } else {
+                print("Error")
+            }
+        }
+        task.resume()
+    }
 }

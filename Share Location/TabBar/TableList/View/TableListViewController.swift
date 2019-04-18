@@ -35,7 +35,7 @@ class TableListViewController: BaseViewController {
     }
     
     func loadTableView() {
-        let requester = Requester()
+        let requester = ShareLocationRequester()
         requester.getUsersData {(success, error) in
             if success {
                 DispatchQueue.main.async {
