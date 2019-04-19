@@ -36,7 +36,7 @@ class InformationPostViewController: BaseViewController {
         let localSearch = MKLocalSearch(request: localSearchRequest)
         localSearch.start { (localSearchResponse, error) -> Void in
             if localSearchResponse == nil {
-                print("Error")
+                self.alert(message: "No possible find your location, try again!")
                 self.pinnator.loadingView(false)
                 return
             }

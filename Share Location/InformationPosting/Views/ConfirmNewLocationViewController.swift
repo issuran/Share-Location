@@ -21,10 +21,14 @@ class ConfirmNewLocationViewController: BaseViewController {
     var longitude: Double = 0.00
     let requester = ShareLocationRequester()
     
+    let pinnator = Pinnator()
+    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pinnator.center = self.view.center
+        self.view.addSubview(pinnator)
         appDelegate = UIApplication.shared.delegate as? AppDelegate
     }
     
@@ -43,18 +47,19 @@ class ConfirmNewLocationViewController: BaseViewController {
     @IBAction func finishAction(_ sender: Any) {
         let userData = UsersInfo(dictionary: ["firstName" : appDelegate.firstName as AnyObject, "lastName": appDelegate.lastName as AnyObject, "mediaURL": mediaURL as AnyObject, "latitude": latitude as AnyObject, "longitude": longitude as AnyObject, "objectId": appDelegate.objectId as AnyObject, "uniqueKey": appDelegate.uniqueKey as AnyObject])
         
-        
-        if mediaURL == "Enter Location Here" || mediaURL == "" {
-            print("Error")
+        if mediaURL == "" {
+            self.alert(message: "Please, type your current location!")
         } else {
             if checkURL(mediaURL) {
+                self.pinnator.loadingView(true)
                 if appDelegate.willOverwrite {
                     requester.updateUserData(student: userData!, location: location) { success, result in
                         DispatchQueue.main.async{
+                            self.pinnator.loadingView(false)
                             if success {
                                 self.navigateTabBar(self)
                             } else {
-                                print("Error")
+                                self.alert(message: result!)
                             }
                         }
                     }
@@ -62,16 +67,19 @@ class ConfirmNewLocationViewController: BaseViewController {
                 } else {
                     requester.postNew(student: userData!, location: location) {success, result in
                         DispatchQueue.main.async{
+                            self.pinnator.loadingView(false)
                             if success {
                                 if let tabbar = (self.storyboard?.instantiateViewController(withIdentifier: "tabbar") as? UITabBarController) {
                                     self.present(tabbar, animated: true, completion: nil)
                                 }
                             } else {
-                                print("Error")
+                                self.alert(message: result!)
                             }
                         }
                     }
                 }
+            } else {
+                self.alert(message: "Could not open your URL!\nPlease try again!")
             }
         }
     }

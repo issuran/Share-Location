@@ -12,7 +12,7 @@ import UIKit
 class ShareLocationRequester {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    func postNew(student: UsersInfo, location: String, completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
+    func postNew(student: UsersInfo, location: String, completion: @escaping (_ success: Bool, _ error: String?) -> Void) {
 
         var request = URLRequest(url: URL(string: Constants.studentLocationURL)!)
         request.httpMethod = Constants.HttpMethod.post.rawValue
@@ -31,10 +31,13 @@ class ShareLocationRequester {
         let session = URLSession.shared
         
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            guard error == nil, data != nil else { return }
+            
+            if let error = error {
+                completion(false, "Sorry, I was unable to process your request due to \(error.localizedDescription)")
+            }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                print("Error Status Code Not a 2xx!")
+                completion(false, "Not success posting new location! Please, try again!")
                 return
             }
             
@@ -43,7 +46,7 @@ class ShareLocationRequester {
         task.resume()
     }
     
-    func updateUserData(student: UsersInfo, location: String, completion: @escaping (_ success: Bool, _ error: NSError?)->Void) {
+    func updateUserData(student: UsersInfo, location: String, completion: @escaping (_ success: Bool, _ error: String?)->Void) {
         let url = "\(Constants.studentLocationURL)/\(student.objectId)"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = Constants.HttpMethod.put.rawValue
@@ -63,10 +66,12 @@ class ShareLocationRequester {
         
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
-            guard error == nil, data != nil else { return }
+            if let error = error {
+                completion(false, "Sorry, I was unable to process your request due to \(error.localizedDescription)")
+            }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                print("Error Status Code Not a 2xx!")
+                completion(false, "Not success posting new location! Please, try again!")
                 return
             }
             
@@ -75,7 +80,7 @@ class ShareLocationRequester {
         task.resume()
     }
     
-    func getUsersData(completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) -> Void {
+    func getUsersData(completion: @escaping (_ success: Bool, _ error: String?) -> Void) -> Void {
         
         let url = "\(Constants.studentLocationURL)?order=-updatedAt&limit=100"
         var request = URLRequest(url: URL(string: url)!)
@@ -84,17 +89,17 @@ class ShareLocationRequester {
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             
-            guard (error == nil) else {
-                return
+            if let error = error {
+                completion(false, "Sorry, I had a problem due to \(error.localizedDescription)")
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                print("Error Status Code Not a 2xx!")
+                completion(false, "Not success posting new location! Please, try again!")
                 return
             }
             
             guard let data = data else {
-                print("No Data Available!")
+                completion(false, "No Data Available!")
                 return
             }
             
@@ -102,7 +107,7 @@ class ShareLocationRequester {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
             } catch {
-                print("Couldnt Parse: '\(data)'")
+                completion(false, "Couldnt Parse: '\(data)'")
                 return
             }
             
@@ -112,7 +117,7 @@ class ShareLocationRequester {
                     completion(true, nil)
                 }
             } else {
-                print("Error")
+                completion(false, "No success on handling your results!")
             }
         }
         task.resume()
