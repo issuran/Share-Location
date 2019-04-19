@@ -29,6 +29,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.delegate = self
         
         pinnator.center = self.view.center
         self.view.addSubview(pinnator)
@@ -59,5 +60,42 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         self.mapView.removeAnnotations(annotations)
         annotations = viewModel.parseAnnotations()
         self.mapView.addAnnotations(annotations)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = UIColor.blue
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        else {
+
+            pinView!.annotation = annotation
+        }
+
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            if let toOpen = view.annotation?.subtitle {
+                if let url = URL(string: toOpen ?? ""), checkURL(toOpen ?? "") {
+                    UIApplication.shared.open(url, options: [:])
+                }
+            }
+        }
+    }
+    
+    func checkURL(_ url: String) -> Bool {
+        if let url = URL(string: url) {
+            return UIApplication.shared.canOpenURL(url)
+        }
+        return false
     }
 }

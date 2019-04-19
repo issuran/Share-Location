@@ -28,6 +28,7 @@ class MapViewModel {
             annotation.coordinate = coordinate
             annotation.title = "\(first) \(last)"
             annotation.subtitle = mediaURL
+
             annotations.append(annotation)
         }
         
