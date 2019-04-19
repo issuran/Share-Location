@@ -48,7 +48,7 @@ class ConfirmNewLocationViewController: BaseViewController {
         let userData = UsersInfo(dictionary: ["firstName" : appDelegate.firstName as AnyObject, "lastName": appDelegate.lastName as AnyObject, "mediaURL": mediaURL as AnyObject, "latitude": latitude as AnyObject, "longitude": longitude as AnyObject, "objectId": appDelegate.objectId as AnyObject, "uniqueKey": appDelegate.uniqueKey as AnyObject])
         
         if mediaURL == "" {
-            self.alert(message: "Please, type your current location!")
+            self.alert(message: "Please, type an url address!\nDon't forget to add in the beginning of your link http:// or https:// (eg. http://www.google.com)")
         } else {
             if checkURL(mediaURL) {
                 self.pinnator.loadingView(true)
@@ -79,7 +79,7 @@ class ConfirmNewLocationViewController: BaseViewController {
                     }
                 }
             } else {
-                self.alert(message: "Could not open your URL!\nPlease try again!")
+                self.alert(message: "Could not open your URL!\nPlease try again!\nDon't forget to add in the beginning of your link http:// or https:// (eg. http://www.google.com)")
             }
         }
     }
